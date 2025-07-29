@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JA Logística - Inovando o conceito de logística</title>
+    
+    <style>
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Variáveis de Cores */
+        :root {
+            --bg-primary: #0A0E1B;
+            --bg-secondary: #131825;
+            --bg-card: #1A2332;
+            --brand-green: #8CC63F;
+            --brand-blue: #0066CC;
+            --brand-gray: #7C7C7C;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8C5E0;
+            --text-body: #8B98B3;
+            --accent-green: #00F5A0;
+            --accent-blue: #00D4FF;
+            --accent-orange: #FF6B35;
+        }
+        
+        /* Body e Container */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Fontes */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Montserrat:wght@700;800&display=swap');
+        
+        /* Container Principal */
+        .container {
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Seções */
+        .section {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 60px 24px 100px;
+        }
+        
+        /* SLIDE 1 - HERO */
+        #hero {
+            background: linear-gradient(180deg, rgba(10,14,27,0.95) 0%, rgba(10,14,27,1) 100%);
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 240px;
+            height: 120px;
+            margin-top: 60px;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .logo-text {
+            font-size: 72px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--brand-gray) 0%, var(--brand-green) 50%, var(--brand-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(42px, 8vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .van-visual {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%);
+            border-radius: 20px;
+            position: relative;
+            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            animation: slideInRight 1s ease-out;
+            box-shadow: 0 20px 60px rgba(0,212,255,0.2);
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .badge-estados {
+            background: rgba(140, 198, 63, 0.1);
+            border: 2px solid var(--brand-green);
+            border-radius: 100px;
+            padding: 24px 48px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--brand-green);
+            margin: 40px auto;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .cta-primary {
+            width: 80%;
+            max-width: 400px;
+            height: 80px;
+            background: var(--brand-green);
+            border: none;
+            border-radius: 40px;
+            color: var(--bg-primary);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(140,198,63,0.3);
+        }
+        
+        .cta-primary:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+        
+        /* SLIDE 2 - COBERTURA */
+        #cobertura {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(36px, 7vw, 48px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .mapa-brasil {
+            width: 90%;
+            max-width: 500px;
+            height: 400px;
+            margin: 0 auto 40px;
+            background: var(--bg-card);
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--text-secondary);
+        }
+        
+        .estados-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 85%;
+            margin: 0 auto;
+        }
+        
+        .estado-card {
+            background: rgba(26, 35, 50, 0.8);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            border-left: 4px solid var(--accent-blue);
+            animation: slideInLeft 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .estado-card:nth-child(2) { 
+            border-left-color: var(--brand-green); 
+            animation-delay: 0.1s;
+        }
+        .estado-card:nth-child(3) { 
+            border-left-color: #FFD93D; 
+            animation-delay: 0.2s;
+        }
+        .estado-card:nth-child(4) { 
+            border-left-color: var(--accent-orange); 
+            animation-delay: 0.3s;
+        }
+        .estado-card:nth-child(5) { 
+            border-left-color: #4A7FFF; 
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* SLIDE 3 - PROCESSO */
+        #processo {
+            background: var(--bg-primary);
+            background-image: radial-gradient(circle at 20% 50%, rgba(140,198,63,0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 80%, rgba(0,212,255,0.1) 0%, transparent 50%);
+        }
+        
+        .timeline {
+            width: 4px;
+            height: 70%;
+            background: var(--brand-green);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 180px;
+        }
+        
+        .processo-etapas {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        .etapa-card {
+            width: 75%;
+            height: 180px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .etapa-card:nth-child(odd) {
+            align-self: flex-start;
+        }
+        
+        .etapa-card:nth-child(even) {
+            align-self: flex-end;
+        }
+        
+        .etapa-icon {
+            font-size: 60px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .etapa-card:nth-child(1) { border-left: 4px solid var(--accent-blue); }
+        .etapa-card:nth-child(2) { border-right: 4px solid var(--brand-green); }
+        .etapa-card:nth-child(3) { border-left: 4px solid var(--accent-orange); }
+        .etapa-card:nth-child(4) { border-right: 4px solid var(--accent-green); }
+        
+        /* SLIDE 4 - TECNOLOGIA */
+        #tecnologia {
+            background: var(--bg-primary);
+            background-image: 
+                linear-gradient(45deg, rgba(0,212,255,0.1) 0%, transparent 70%),
+                linear-gradient(-45deg, rgba(140,198,63,0.1) 0%, transparent 70%);
+        }
+        
+        .titulo-gradiente {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--brand-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .mockup-celular {
+            width: 80%;
+            max-width: 400px;
+            height: 60vh;
+            max-height: 600px;
+            background: var(--bg-card);
+            border-radius: 40px;
+            margin: 0 auto 40px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--text-secondary);
+            position: relative;
+            transform: perspective(1000px) rotateY(-5deg);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: perspective(1000px) rotateY(-5deg) translateY(0); }
+            50% { transform: perspective(1000px) rotateY(-5deg) translateY(-10px); }
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: 14px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* SLIDE 5 - FILIAIS */
+        #filiais {
+            background: var(--bg-primary);
+        }
+        
+        .carrossel-vertical {
+            width: 90%;
+            height: 400px;
+            margin: 0 auto 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+        
+        .carrossel-item {
+            width: 100%;
+            height: 120px;
+            background: var(--bg-card);
+            margin-bottom: 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-secondary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .badges-estrutura {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            width: 90%;
+            margin: 0 auto;
+            position: absolute;
+            bottom: 120px;
+        }
+        
+        .badge-item {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .badge-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--brand-green);
+            display: block;
+        }
+        
+        /* SLIDE 6 - PARCEIROS */
+        #parceiros {
+            background: radial-gradient(circle at center, rgba(140,198,63,0.05) 0%, var(--bg-primary) 70%);
+        }
+        
+        .parceiros-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            padding: 40px;
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .parceiro-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            height: 120px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-body);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .parceiro-card:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.08);
+            border-color: var(--brand-green);
+        }
+        
+        .slogan {
+            font-size: 24px;
+            color: var(--brand-green);
+            text-align: center;
+            line-height: 1.4;
+            margin-top: 60px;
+            font-weight: 400;
+        }
+        
+        /* SLIDE 7 - CONVERSÃO */
+        #conversao {
+            background: linear-gradient(135deg, rgba(140,198,63,0.2) 0%, rgba(0,102,204,0.2) 100%),
+                        var(--bg-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .headline-final {
+            font-size: clamp(48px, 10vw, 64px);
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
+        
+        .oferta-special {
+            background: var(--accent-orange);
+            transform: rotate(-2deg);
+            padding: 24px;
+            border-radius: 16px;
+            width: 80%;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 40px rgba(255,107,53,0.3);
+        }
+        
+        .oferta-special h3 {
+            font-size: 28px;
+            font-weight: 900;
+            color: white;
+        }
+        
+        .ctas-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 85%;
+            max-width: 400px;
+        }
+        
+        .cta-whatsapp {
+            height: 100px;
+            background: #25D366;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            cursor: pointer;
+            box-shadow: 0 20px 40px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-secondary {
+            height: 80px;
+            background: transparent;
+            border: 3px solid var(--accent-blue);
+            border-radius: 40px;
+            color: var(--accent-blue);
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-secondary:nth-child(3) {
+            border-color: var(--brand-green);
+            color: var(--brand-green);
+        }
+        
+        .rodape {
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        
+        .rodape .logo-small {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        
+        /* Utilities */
+        .glassmorphism {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Mobile Touch */
+        @media (hover: none) {
+            button:active {
+                transform: scale(0.95);
+            }
+        }
+        
+        /* Safe Areas */
+        @supports (padding-top: env(safe-area-inset-top)) {
+            .section {
+                padding-top: calc(60px + env(safe-area-inset-top));
+                padding-bottom: calc(100px + env(safe-area-inset-bottom));
+            }
+        }
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 8px;
+        }
+        
+        .scroll-indicator::before {
+            content: '';
+            width: 4px;
+            height: 10px;
+            background: white;
+            border-radius: 2px;
+            animation: scroll 2s infinite;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(20px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SLIDE 1 - HERO -->
+    <section id="hero" class="section">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">JA</div>
+            </div>
+            <h1>Inovando o conceito<br>de logística</h1>
+            <div class="van-visual">🚚</div>
+            <div class="badge-estados">5 ESTADOS ATENDIDOS</div>
+        </div>
+        <button class="cta-primary" onclick="scrollToSection('cobertura')">
+            CONHEÇA NOSSOS SERVIÇOS ↓
+        </button>
+    </section>
+
+    <!-- SLIDE 2 - COBERTURA NACIONAL -->
+    <section id="cobertura" class="section">
+        <div class="container">
+            <h2>Presente em 5 Estados</h2>
+            <div class="mapa-brasil">
+                <div>🗺️ Mapa do Brasil</div>
+            </div>
+            <div class="estados-lista">
+                <div class="estado-card">
+                    <strong>DF</strong> - Distrito Federal<br>
+                    <small>15 cidades atendidas</small>
+                </div>
+                <div class="estado-card">
+                    <strong>GO</strong> - Goiás<br>
+                    <small>32 cidades atendidas</small>
+                </div>
+                <div class="estado-card">
+                    <strong>MT</strong> - Mato Grosso<br>
+                    <small>28 cidades atendidas</small>
+                </div>
+                <div class="estado-card">
+                    <strong>MS</strong> - Mato Grosso do Sul<br>
+                    <small>22 cidades atendidas</small>
+                </div>
+                <div class="estado-card">
+                    <strong>SE</strong> - Sergipe<br>
+                    <small>18 cidades atendidas</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3 - PROCESSO LOGÍSTICO -->
+    <section id="processo" class="section">
+        <div class="container">
+            <h2>Processo Completo</h2>
+            <div class="timeline"></div>
+            <div class="processo-etapas">
+                <div class="etapa-card">
+                    <div class="etapa-icon">📦</div>
+                    <div>
+                        <h3>COLETA</h3>
+                        <p>Retirada ágil e segura</p>
+                    </div>
+                </div>
+                <div class="etapa-card">
+                    <div class="etapa-icon">🏭</div>
+                    <div>
+                        <h3>MANUSEIO</h3>
+                        <p>Cuidado profissional</p>
+                    </div>
+                </div>
+                <div class="etapa-card">
+                    <div class="etapa-icon">🚛</div>
+                    <div>
+                        <h3>TRANSPORTE</h3>
+                        <p>Frota moderna e rastreada</p>
+                    </div>
+                </div>
+                <div class="etapa-card">
+                    <div class="etapa-icon">✅</div>
+                    <div>
+                        <h3>ENTREGA</h3>
+                        <p>Pontualidade garantida</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4 - TECNOLOGIA -->
+    <section id="tecnologia" class="section">
+        <div class="container">
+            <h2 class="titulo-gradiente">Sistemas Inovadores</h2>
+            <div class="mockup-celular">
+                <div>📱 Rastreamento Online</div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item glassmorphism">
+                    <strong>Rastreamento 24h</strong>
+                </div>
+                <div class="feature-item glassmorphism">
+                    <strong>Notificações Push</strong>
+                </div>
+                <div class="feature-item glassmorphism">
+                    <strong>Histórico Completo</strong>
+                </div>
+                <div class="feature-item glassmorphism">
+                    <strong>Suporte Online</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 5 - FILIAIS/INSTALAÇÕES -->
+    <section id="filiais" class="section">
+        <div class="container">
+            <h2>Infraestrutura Completa</h2>
+            <div class="carrossel-vertical">
+                <div class="carrossel-item">📍 Sede Brasília</div>
+                <div class="carrossel-item">📍 Filial Goiânia</div>
+                <div class="carrossel-item">📍 Filial Cuiabá</div>
+            </div>
+            <div class="badges-estrutura">
+                <div class="badge-item glassmorphism">
+                    <span class="badge-number">5</span>
+                    Sedes
+                </div>
+                <div class="badge-item glassmorphism">
+                    <span class="badge-number">10k</span>
+                    m² de área
+                </div>
+                <div class="badge-item glassmorphism">
+                    <span class="badge-number">100+</span>
+                    Frota Própria
+                </div>
+                <div class="badge-item glassmorphism">
+                    <span class="badge-number">24h</span>
+                    Equipe
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 6 - PARCEIROS -->
+    <section id="parceiros" class="section">
+        <div class="container">
+            <h2>Parceiros de Confiança</h2>
+            <div class="parceiros-grid">
+                <div class="parceiro-card">Parceiro 1</div>
+                <div class="parceiro-card">Parceiro 2</div>
+                <div class="parceiro-card">Parceiro 3</div>
+                <div class="parceiro-card">Parceiro 4</div>
+            </div>
+            <p class="slogan">
+                Conquistando um sorriso<br>
+                a cada entrega
+            </p>
+        </div>
+    </section>
+
+    <!-- SLIDE 7 - CONVERSÃO -->
+    <section id="conversao" class="section">
+        <div class="container">
+            <h1 class="headline-final">
+                Vamos Inovar<br>
+                Juntos?
+            </h1>
+            <div class="oferta-special">
+                <h3>PRIMEIRA ENTREGA GRÁTIS</h3>
+            </div>
+            <div class="ctas-vertical">
+                <button class="cta-whatsapp" onclick="window.open('https://wa.me/5511999999999', '_blank')">
+                    💬 FALE CONOSCO
+                </button>
+                <button class="cta-secondary">
+                    ✉️ contato@jalogistica.com
+                </button>
+                <button class="cta-secondary">
+                    📞 0800 123 4567
+                </button>
+            </div>
+            <div class="rodape">
+                <div class="logo-small logo-text">JA</div>
+                <p>5 anos inovando a logística</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+
+    <script>
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Touch gestures support
+        let touchStartY = 0;
+        let touchEndY = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.changedTouches[0].screenY;
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            touchEndY = e.changedTouches[0].screenY;
+            handleGesture();
+        });
+        
+        function handleGesture() {
+            const sections = document.querySelectorAll('.section');
+            const currentSection = Math.round(window.scrollY / window.innerHeight);
+            
+            if (touchEndY < touchStartY - 50) {
+                // Swipe up - next section
+                if (currentSection < sections.length - 1) {
+                    sections[currentSection + 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            if (touchEndY > touchStartY + 50) {
+                // Swipe down - previous section
+                if (currentSection > 0) {
+                    sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards
+        document.querySelectorAll('.estado-card, .etapa-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Hide/show scroll indicator
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
+        
+        // Add haptic feedback simulation for buttons (visual feedback)
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
